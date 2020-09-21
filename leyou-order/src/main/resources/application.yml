@@ -1,0 +1,36 @@
+server:
+  port: 8089
+spring:
+  application:
+    name: leyou-order
+  datasource:
+    url: jdbc:mysql://localhost:3306/leyou
+    username: root
+    password: 123456
+  jackson:
+    default-property-inclusion: non-null
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+    registry-fetch-interval-seconds: 5
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+mybatis:
+  type-aliases-package: com.peng.leyou.pojo
+  
+leyou:
+  jwt:
+    pubKeyPath: E:\\rsa.pub # 公钥地址
+    cookieName: LEYOU_TOKEN
+  worker:
+    workerId: 1
+    datacenterId: 1
+  pay:
+    appId: wx8397f8696b538317
+    mchId: 1473426802
+    key: T6m9iK73b0kn9g5v426MKfHQH7X8rKwb
+    connectTimeoutMs: 5000
+    readTimeoutMs: 10000
+    notifyUrl: http://p6zmd8.natappfree.cc/notify

@@ -1,0 +1,18 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: leyou-page
+  thymeleaf:
+    cache: false #关闭thymeleaf缓存
+  rabbitmq:
+    host: 192.168.200.129
+    username: leyou
+    password: leyou
+    virtual-host: /leyou
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka

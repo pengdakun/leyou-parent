@@ -1,0 +1,22 @@
+server:
+  port: 8088
+  
+spring:
+  application:
+    name: leyou-cart
+  redis:
+    host: 192.168.200.129
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+    registry-fetch-interval-seconds: 5 #配置获取其他微服务的周期  5秒获取一次
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+    
+leyou:
+  jwt:
+    pubKeyPath: E:\\rsa.pub # 公钥地址
+    cookieName: LEYOU_TOKEN

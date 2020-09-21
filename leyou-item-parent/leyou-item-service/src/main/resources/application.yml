@@ -1,0 +1,35 @@
+server:
+  port: 8081
+  
+  
+spring:
+  application:
+    name: leyou-item-service
+    
+  datasource: #spring可以自动根据驱动jar包推断驱动
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/leyou
+  rabbitmq:
+    host: 192.168.200.129
+    username: leyou
+    password: leyou
+    virtual-host: /leyou
+    template:
+      retry:
+        enabled: true
+        initial-interval: 10000ms #初始化重试周期
+        max-interval: 30000ms #最大重试周期
+        multiplier: 2
+      exchange: leyou.item.exchange #配置默认交换机名称
+    publisher-confirms: true #开启生产者重试
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka 
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
+    lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    instance-id: ${spring.application.name}:${server.port}
